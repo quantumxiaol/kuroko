@@ -11,3 +11,6 @@ wheels/
 .env
 # Third-party closed-source services (PRC Server, not redistributable via git)
 third_service/
+
+# vvvv patch compile cache
+*.pc
