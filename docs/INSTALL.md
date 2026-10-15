@@ -37,3 +37,7 @@ dir "%LOCALAPPDATA%\Programs" /s /b | findstr /i GammaLauncher
 ## 安装vvvv 8.0-01184
 
 在gamma-launcher中选择安装
+
+## PRC Server（机器人仿真/gRPC 服务）
+
+见 [prc-server](./prc-server.md)。Python 依赖：`uv add grpcio grpcio-tools protobuf`。

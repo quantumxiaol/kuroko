@@ -8,3 +8,6 @@ wheels/
 
 # Virtual environments
 .venv
+.env
+# Third-party closed-source services (PRC Server, not redistributable via git)
+third_service/
