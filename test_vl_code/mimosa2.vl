@@ -1,5 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Document xmlns:p="property" xmlns:r="reflection" Id="SY81l9l4AjXLbJe2aIuuaE" LanguageVersion="2026.8.0-0184-gd02135cf16" Version="0.128">
+  <NugetDependency Id="DyF0sYCq9jFLwWqlV7uGqN" Location="VL.Bunraku" Version="1.0.3" />
   <NugetDependency Id="BEaa0gsWxWmMyaYoRk8BaT" Location="VL.CoreLib" />
   <Patch Id="N2A1Pze8zOwLhVREnzmZwu">
     <Canvas Id="Etybjns2yx5MHceGRL693e" DefaultCategory="ParametricRobotControl" CanvasType="FullCategory">
@@ -1228,5 +1229,5 @@
   </Patch>
   <NugetDependency Id="DrrNy8K2LflOupjwYy2brU" Location="VL.Stride" />
   <NugetDependency Id="MvaUcWuoFmfOM63QhM0xTZ" Location="VL.Stride.TextureFX" />
-  <DocumentDependency Id="GXTuzObNveDLaCKektsLzs" Location="../../../Users/liuxi/.nuget/packages/VL.Bunraku/1.0.3/VL.Bunraku.vl" />
+  
 </Document>
