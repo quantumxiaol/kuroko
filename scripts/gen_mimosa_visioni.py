@@ -73,7 +73,17 @@ def skia_from_image(name: str, bounds: str) -> str:
           </Node>"""
 
 
-def draw_image(name: str, bounds: str, pos: str) -> str:
+def draw_image(name: str, bounds: str, pos: str, size: str | None = None) -> str:
+    if size is None:
+        size_pin = f'<Pin Id="{I(name + "_size")}" Name="Size" Kind="InputPin" />'
+        size_mode = "OriginalSize"
+    else:
+        size_pin = f'''<Pin Id="{I(name + "_size")}" Name="Size" Kind="InputPin" DefaultValue="{size}">
+              <p:TypeAnnotation LastCategoryFullName="2D" LastDependency="VL.CoreLib.vl">
+                <Choice Kind="TypeFlag" Name="Vector2" />
+              </p:TypeAnnotation>
+            </Pin>'''
+        size_mode = "Fill"
     return f"""<Node Bounds="{bounds}" Id="{I(name)}">
             <p:NodeReference LastCategoryFullName="Graphics.Skia.Layers" LastSymbolSource="VL.Skia.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -81,8 +91,8 @@ def draw_image(name: str, bounds: str, pos: str) -> str:
             </p:NodeReference>
             <Pin Id="{I(name + '_img')}" Name="Image" Kind="InputPin" />
             <Pin Id="{I(name + '_pos')}" Name="Position" Kind="InputPin" DefaultValue="{pos}" />
-            <Pin Id="{I(name + '_size')}" Name="Size" Kind="InputPin" />
-            <Pin Id="{I(name + '_sizemode')}" Name="Size Mode" Kind="InputPin" DefaultValue="OriginalSize">
+            {size_pin}
+            <Pin Id="{I(name + '_sizemode')}" Name="Size Mode" Kind="InputPin" DefaultValue="{size_mode}">
               <p:TypeAnnotation LastCategoryFullName="Graphics.Skia.Imaging" LastSymbolSource="VL.Skia.vl">
                 <Choice Kind="TypeFlag" Name="SizeMode" />
               </p:TypeAnnotation>
