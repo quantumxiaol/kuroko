@@ -1,0 +1,7 @@
+shader VertexColor_ShaderFX : ComputeColor, ColorBase
+{
+    override float4 Compute()
+    {
+        return streams.Color;
+    }
+};
