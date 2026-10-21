@@ -1830,7 +1830,42 @@
             <Pin Id="QnHSlCZLAhLPfoDaCCUzGY" Name="Output" Kind="OutputPin" IsHidden="true"/>
             <Pin Id="LXmTTqPz6QoPAiN4mddzFF" Name="Entity" Kind="OutputPin"/>
           </Node>
-          <Node Bounds="2600,1210,125,19" Id="U1rgmZGrrhwLbs6F0cGCif"><p:NodeReference LastCategoryFullName="Stride" LastDependency="VL.Stride.vl"><Choice Kind="NodeFlag" Name="Node" Fixed="true"/><CategoryReference Kind="Category" Name="Stride" NeedsToBeDirectParent="true"/><Choice Kind="ProcessAppFlag" Name="Group"/></p:NodeReference><Pin Id="KfEFmGFFTGhNPZZuMjnCTe" Name="Node Context" Kind="InputPin" IsHidden="true"/><Pin Id="OdcqY9fZ2kyM9TA6ZVvwOu" Name="Transformation" Kind="InputPin"/><Pin Id="CPq18gbyN7rPzC4TdxoQ4H" Name="Child" Kind="InputPin"/><Pin Id="PqPX1mP4HMbMPza6nylHsC" Name="Child 2" Kind="InputPin"/><Pin Id="RJfOjOXbQWeLG9dzhsi6uI" Name="Child 3" Kind="InputPin"/><Pin Id="UM1ZCN5f6ikMmqZbGpwvf0" Name="Child 4" Kind="InputPin"/><Pin Id="K1uB7C84NAYPZowLEcXyYq" Name="Name" Kind="InputPin"/><Pin Id="LBe5zEAlaulOkiZT7GoLYE" Name="Enabled" Kind="InputPin"/><Pin Id="Hzi2DI7ICU0PhyZprdVruB" Name="Output" Kind="OutputPin"/></Node></Canvas>
+          <Node Bounds="2600,1210,125,19" Id="U1rgmZGrrhwLbs6F0cGCif"><p:NodeReference LastCategoryFullName="Stride" LastDependency="VL.Stride.vl"><Choice Kind="NodeFlag" Name="Node" Fixed="true"/><CategoryReference Kind="Category" Name="Stride" NeedsToBeDirectParent="true"/><Choice Kind="ProcessAppFlag" Name="Group"/></p:NodeReference><Pin Id="KfEFmGFFTGhNPZZuMjnCTe" Name="Node Context" Kind="InputPin" IsHidden="true"/><Pin Id="OdcqY9fZ2kyM9TA6ZVvwOu" Name="Transformation" Kind="InputPin"/><Pin Id="CPq18gbyN7rPzC4TdxoQ4H" Name="Child" Kind="InputPin"/><Pin Id="PqPX1mP4HMbMPza6nylHsC" Name="Child 2" Kind="InputPin"/><Pin Id="RJfOjOXbQWeLG9dzhsi6uI" Name="Child 3" Kind="InputPin"/><Pin Id="UM1ZCN5f6ikMmqZbGpwvf0" Name="Child 4" Kind="InputPin"/><Pin Id="K1uB7C84NAYPZowLEcXyYq" Name="Name" Kind="InputPin"/><Pin Id="LBe5zEAlaulOkiZT7GoLYE" Name="Enabled" Kind="InputPin"/><Pin Id="Hzi2DI7ICU0PhyZprdVruB" Name="Output" Kind="OutputPin"/></Node><Node Bounds="1666,1450,100,19" Id="AQLr1NA5nzBNBKwJpWeFRe">
+            <p:NodeReference LastCategoryFullName="Bunraku.ParametricRobotControl.Robots.KUKA" LastDependency="VL.Bunraku.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true"/>
+              <Choice Kind="ProcessAppFlag" Name="KUKA_KR13R9003 (KRL)"/>
+            </p:NodeReference>
+            <Pin Id="Ra0ydzn180dM6ZiEiebENk" Name="Node Context" Kind="InputPin" IsHidden="true"/>
+            <Pin Id="GSC6sYsBy5BMyGMZySHvUn" Name="Enabled" Kind="InputPin" DefaultValue="True"/>
+            <Pin Id="NdG143TZU9uP5DO9QK3jf0" Name="Client Id" Kind="InputPin"/>
+            <Pin Id="TmcHPsfUYcWLvCURjr9ZNi" Name="Output" Kind="StateOutputPin"/>
+          </Node>
+          <Pad Id="PCDyR361W0FNHRb9XmFxo7" Comment="Client Id" Bounds="1830,1400,35,15" ShowValueBox="true" isIOBox="true" Value="Bob"><p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl"><Choice Kind="TypeFlag" Name="String"/></p:TypeAnnotation></Pad><Node Bounds="1665,1560,87,19" Id="J4H81orMtpUP2XDCn27HkV">
+            <p:NodeReference LastCategoryFullName="Bunraku.ParametricRobotControl" LastDependency="VL.Bunraku.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true"/>
+              <CategoryReference Kind="Category" Name="ParametricRobotControl" NeedsToBeDirectParent="true">
+                <p:OuterCategoryReference Kind="Category" Name="Bunraku" NeedsToBeDirectParent="true"/>
+              </CategoryReference>
+              <Choice Kind="ProcessAppFlag" Name="RobotAssembly"/>
+            </p:NodeReference>
+            <Pin Id="E6tk71tMnppLe1GPL6IqcV" Name="Node Context" Kind="InputPin" IsHidden="true"/>
+            <Pin Id="G6ioPpNXcVKN9ZJkCiUKR1" Name="Input" Kind="InputPin"/>
+            <Pin Id="HSKBKcnibYnNJfcOhqAU9C" Name="Task" Kind="InputPin"/>
+            <Pin Id="GFqLTdY5c71MxQYOCWjzKW" Name="Simulation State" Kind="InputPin"/>
+            <Pin Id="FRzkvb7CKAfOwrSWb9PD3u" Name="RobotState" Kind="OutputPin"/>
+            <Pin Id="MfOcRyDDUkqMiWVy1FFAKH" Name="TaskFeedbackMessage" Kind="OutputPin"/>
+            <Pin Id="GdUP60qgE6EP7JH2ojYESQ" Name="Code" Kind="OutputPin"/>
+          </Node>
+          <Node Bounds="1666,1680,101,19" Id="NriHQ6fm2OEOvdfUX7Wu2c">
+            <p:NodeReference LastCategoryFullName="Main" LastDependency="PRC.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true"/>
+              <Choice Kind="ProcessNode" Name="VisualizePRCRobot"/>
+            </p:NodeReference>
+            <Pin Id="GlFonEqeTEPOheMDjzX657" Name="Node Context" Kind="InputPin" IsHidden="true"/>
+            <Pin Id="RGMAG2l0jFVNqZBhb2HhfE" Name="Output" Kind="OutputPin"/>
+            <Pin Id="R4jFztH9krhOk1hno0iABV" Name="Input" Kind="InputPin"/>
+          </Node>
+          <Node Bounds="1900,1680,125,19" Id="PgTNP9UWkzsQNXerjTIZl6"><p:NodeReference LastCategoryFullName="Stride" LastDependency="VL.Stride.vl"><Choice Kind="NodeFlag" Name="Node" Fixed="true"/><CategoryReference Kind="Category" Name="Stride" NeedsToBeDirectParent="true"/><Choice Kind="ProcessAppFlag" Name="Group"/></p:NodeReference><Pin Id="UCoTKaH0qMuPwcHULxQRSa" Name="Node Context" Kind="InputPin" IsHidden="true"/><Pin Id="SO77JZbfgKKLXC1QXxzBOq" Name="Transformation" Kind="InputPin"/><Pin Id="CNziOU9Clk9Og4aO9lLLX0" Name="Child" Kind="InputPin"/><Pin Id="ACE0rkiTxsWMzd2wQmClxS" Name="Child 2" Kind="InputPin"/><Pin Id="TUeVS5Ehi8aMR2gseNLMQI" Name="Child 3" Kind="InputPin"/><Pin Id="LSfAArs4M7pPVUcVWPAiaX" Name="Child 4" Kind="InputPin"/><Pin Id="B4I63YHFC2jNGsno9FOcVn" Name="Name" Kind="InputPin"/><Pin Id="BVfPYD8N9xDNxCTlVzdpit" Name="Enabled" Kind="InputPin"/><Pin Id="Tns0egw2EOEMuUXUOCNudM" Name="Output" Kind="OutputPin"/></Node><Node Bounds="1900,1580,76,19" Id="QylsiDqOq3EPEE0qH2v9Za"><p:NodeReference LastCategoryFullName="3D.Transform" LastDependency="VL.CoreLib.vl"><Choice Kind="NodeFlag" Name="Node" Fixed="true"/><CategoryReference Kind="Category" Name="Transform" NeedsToBeDirectParent="true"><p:OuterCategoryReference Kind="Category" Name="3D" NeedsToBeDirectParent="true"/></CategoryReference><Choice Kind="OperationCallFlag" Name="Translate"/></p:NodeReference><Pin Id="IWSmPB2CEeCQab9PJClNt7" Name="Input" Kind="InputPin"/><Pin Id="LiHYeQs1u5qNrFlaIG3NTX" Name="Translation" Kind="InputPin"/><Pin Id="IZiLYkywvxPMTG3JcHUPYw" Name="Output" Kind="OutputPin"/></Node><Pad Id="MWi7fshwSn9P6GA6peKmNH" Comment="robot 2 offset (m)" Bounds="1665,1580,56,15" ShowValueBox="true" isIOBox="true" Value="1.5, 0, 0"><p:TypeAnnotation LastCategoryFullName="3D" LastDependency="VL.CoreLib.vl"><Choice Kind="TypeFlag" Name="Vector3"/></p:TypeAnnotation></Pad></Canvas>
         <Patch Id="GpvDPEQUnfNQQeo0TzmAB1" Name="Create"/>
         <Patch Id="I7xz2LBq9k6N73kGGPOBeq" Name="Update"/>
         <ProcessDefinition Id="O5W7QyN48QuNmo3DNAr6FS">
@@ -1920,7 +1955,7 @@
         <Link Id="Dymzpzn5ZHsMZoxOxnuJhL" Ids="It8nHK3gf7ZMq6Gn1wsPhD,Bu16VJo2kgMLOO4aprzfEL"/>
         <Link Id="V5nGdrmjIEBPvK5ZWqx8Qt" Ids="UETXdGhLc6MQd5Lof3uS37,LQdtzRAcEcsMu8jiX2vCKM"/>
         <Link Id="VvGfvIFcz9LPGo8WG9iRYh" Ids="KlLOJjWBKkwL9urvwL3x34,FJPev5eizlaOiIZA2Ue9Ev"/>
-        <Link Id="KjYNt59PX5qOhTx0oOhkC1" Ids="LXmTTqPz6QoPAiN4mddzFF,PqPX1mP4HMbMPza6nylHsC"/><Link Id="UqkPnmEg98EPQ53LSjrTNo" Ids="MH3X5mtCos5OSTLljf8GhM,CPq18gbyN7rPzC4TdxoQ4H"/><Link Id="AnrED7oY6NfNUfJlwUTlFV" Ids="Hzi2DI7ICU0PhyZprdVruB,REjpQ5HcpTdMs6JVCbPgKK"/></Patch>
+        <Link Id="KjYNt59PX5qOhTx0oOhkC1" Ids="LXmTTqPz6QoPAiN4mddzFF,PqPX1mP4HMbMPza6nylHsC"/><Link Id="UqkPnmEg98EPQ53LSjrTNo" Ids="MH3X5mtCos5OSTLljf8GhM,CPq18gbyN7rPzC4TdxoQ4H"/><Link Id="AnrED7oY6NfNUfJlwUTlFV" Ids="Hzi2DI7ICU0PhyZprdVruB,REjpQ5HcpTdMs6JVCbPgKK"/><Link Id="UBUkzf2AEQeMu3sS7QKD2w" Ids="PCDyR361W0FNHRb9XmFxo7,NdG143TZU9uP5DO9QK3jf0"/><Link Id="S5ecbX30zkVPSMWhOUWihz" Ids="TmcHPsfUYcWLvCURjr9ZNi,G6ioPpNXcVKN9ZJkCiUKR1"/><Link Id="GfQO43kjsibMIXw1cFvQCy" Ids="OMjhstWmxm6NMOdxVTh6TZ,HSKBKcnibYnNJfcOhqAU9C"/><Link Id="OzsdiQFMBaOQO9Nj49JQSe" Ids="FRzkvb7CKAfOwrSWb9PD3u,R4jFztH9krhOk1hno0iABV"/><Link Id="Sn9wbDT4fEHNeAUeRzQM3J" Ids="RGMAG2l0jFVNqZBhb2HhfE,CNziOU9Clk9Og4aO9lLLX0"/><Link Id="Dx1CO5JPNr3Lzs2y1ruX3f" Ids="MWi7fshwSn9P6GA6peKmNH,LiHYeQs1u5qNrFlaIG3NTX"/><Link Id="GumLgxERaLaOwRWgIJ7xY3" Ids="IZiLYkywvxPMTG3JcHUPYw,SO77JZbfgKKLXC1QXxzBOq"/><Link Id="J94K6KWd8XVOKyNoTNCEaT" Ids="Tns0egw2EOEMuUXUOCNudM,RJfOjOXbQWeLG9dzhsi6uI"/></Patch>
     </Node>
   </Patch>
   <NugetDependency Id="DrrNy8K2LflOupjwYy2brU" Location="VL.Stride"/>
