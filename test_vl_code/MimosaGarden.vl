@@ -1256,7 +1256,7 @@
             <Pin Id="OxH2kCnikCYOkuYsg05Bap" Name="Camera Component" Kind="OutputPin"/>
             <Pin Id="UjpfWYJCVGEMms7cLi9Ii2" Name="Interest" Kind="OutputPin"/>
           </Node>
-          <Pad Id="InuIQg7nG0cP6aprewrvz2" Comment="Initial Interest" Bounds="1695,991,35,43" ShowValueBox="true" isIOBox="true" Value="0.11, -0.3, -2.31">
+          <Pad Id="InuIQg7nG0cP6aprewrvz2" Comment="Initial Interest" Bounds="1695,991,35,43" ShowValueBox="true" isIOBox="true" Value="1, -0.3, -2.31">
             <p:TypeAnnotation LastCategoryFullName="3D" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="Vector3"/>
             </p:TypeAnnotation>
@@ -1290,7 +1290,7 @@
             <Pin Id="NMxRPhVAam3PYApWz7KQvN" Name="Has Changed" Kind="OutputPin"/>
             <Pin Id="Kedclg9QzpFMPCQqJdohf3" Name="Force New Func" Kind="InputPin" IsHidden="true"/>
           </Node>
-          <Pad Id="DNL2w5qZvP5P2NFgwVdZ5m" Comment="" Bounds="1900,1020,35,43" ShowValueBox="true" isIOBox="true" Value="0, 0.38, 4.13">
+          <Pad Id="DNL2w5qZvP5P2NFgwVdZ5m" Comment="" Bounds="1900,1020,35,43" ShowValueBox="true" isIOBox="true" Value="1, 0.38, 4.13">
             <p:TypeAnnotation LastCategoryFullName="3D" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="Vector3"/>
             </p:TypeAnnotation>
