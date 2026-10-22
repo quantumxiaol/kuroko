@@ -1943,9 +1943,9 @@
               </p:TypeArguments>
             </p:TypeAnnotation>
             <p:Value>
-              <Item>1.17, 0.58, 0.0</Item>
-              <Item>0.0, 0.25, -1.22</Item>
-              <Item>0.0, 0.5, 1.96</Item>
+              <Item>2.50, 0.58, -1.0</Item>
+              <Item>0.00, 0.25, 2.00</Item>
+              <Item>-0.5, 0.50, -1.5</Item>
             </p:Value>
           </Pad>
           <Pad Id="HAV2eb5pYGQOZUJv4gqgMc" Comment="" Bounds="3284,1730,35,65" ShowValueBox="true" isIOBox="true" Value="1, 0.38, 0.84">
