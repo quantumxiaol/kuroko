@@ -1,8 +1,10 @@
 # Kuroko
 
-含羞草机器人互动装置：有人靠近时，机械臂害羞地蜷缩、微微发抖；没人时，它在草地上对着蘑菇自娱自乐地跳舞。
+含羞草 × 胆小菇：一台会"害羞"的机器人装置。有人靠近时，机械臂像含羞草一样蜷缩、像胆小菇一样微微发抖；没人时，它在草地上对着蘑菇自娱自乐地跳舞。运镜自动切换远近机位。
 
-A shy robot installation: when someone approaches, the arm folds into itself and trembles; when alone, it dances among the mushrooms on the lawn.
+A shy robot installation — part mimosa, part scaredy-shroom: when someone approaches, the arm folds into itself and trembles; when alone, it dances among the mushrooms on the lawn.
+
+**为什么叫 Kuroko（黒子）**：文乐/歌舞伎舞台上全身黑衣的操偶师——观众看得见木偶，看不见操纵的手。机器人控制框架 VL.Bunraku 得名于文乐木偶戏，而本装置里：机械臂和蘑菇是台上的角色，背后的感知与行为逻辑就是黑衣的 Kuroko。项目最初设想是"自然语言操纵机械臂"（Python 侧 openai / deepseek 依赖和 PRC gRPC 客户端已就位），那正是 Kuroko 的完全体——一条看得见舞台、看不见操纵者的路。
 
 基于 vvvv gamma + VL.Bunraku（机器人实时运动学/仿真/渲染）+ Intel RealSense D435i（深度感知），面向 KUKA 机械臂（仿真：KR13 / LBR iiwa；真机走 PRC Server）。
 
