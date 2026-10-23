@@ -1,4 +1,4 @@
-"""Create test_vl_code/MimosaGarden.vl = MimosaFinal.vl + ScaredyShroom.vl scene content.
+"""Create vlsrc/MimosaGarden.vl = MimosaFinal.vl + ScaredyShroom.vl scene content.
 
 - Floor: the Plane is replaced by the shroom Cylinder (top radius enlarged to 4 m),
   textured with grass_tile.png (no transparent margins -> no black borders).
@@ -25,9 +25,9 @@ spec = importlib.util.spec_from_file_location("vl_ids", IDS_PY)
 vl_ids = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(vl_ids)
 
-BASE = ROOT / "test_vl_code" / "MimosaFinal.vl"
-SHROOM = ROOT / "test_vl_code" / "ScaredyShroom.vl"
-OUT = ROOT / "test_vl_code" / "MimosaGarden.vl"
+BASE = ROOT / "vlsrc" / "MimosaFinal.vl"
+SHROOM = ROOT / "vlsrc" / "ScaredyShroom.vl"
+OUT = ROOT / "vlsrc" / "MimosaGarden.vl"
 P = "{property}"
 
 # MimosaFinal floor pieces to remove (added by add_grass_texture.py): Plane, TextureMaterial,

@@ -1,4 +1,4 @@
-"""Generate test_vl_code/Mimosa.vl — a "touch-me-not" (含羞草) robot patch for VL.Bunraku 1.0.3.
+"""Generate vlsrc/Mimosa.vl — a "touch-me-not" (含羞草) robot patch for VL.Bunraku 1.0.3.
 
 Robot: KUKA LBR iiwa 7 R800 (7 axes).
 
@@ -516,7 +516,7 @@ def validate(path: Path) -> list[str]:
 
 
 def main() -> int:
-    out = ROOT / "test_vl_code" / "Mimosa.vl"
+    out = ROOT / "vlsrc" / "Mimosa.vl"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(TEMPLATE, encoding="utf-8", newline="\n")
     errors = validate(out)

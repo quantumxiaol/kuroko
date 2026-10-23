@@ -1,4 +1,4 @@
-"""Generate test_vl_code/MimosaVision.vl — camera person-distance input for the Mimosa patch.
+"""Generate vlsrc/MimosaVision.vl — camera person-distance input for the Mimosa patch.
 
 Chain:
   MediaPipe node (hosts the camera via its embedded browser; pose detection on GPU)
@@ -426,7 +426,7 @@ def validate(path: Path) -> list[str]:
 
 
 def main() -> int:
-    out = ROOT / "test_vl_code" / "MimosaVision.vl"
+    out = ROOT / "vlsrc" / "MimosaVision.vl"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(TEMPLATE, encoding="utf-8", newline="\n")
     errors = validate(out)

@@ -1,4 +1,4 @@
-"""Generate test_vl_code/MimosaVisioni.vl — pure depth-based proximity input for Mimosa.vl.
+"""Generate vlsrc/MimosaVisioni.vl — pure depth-based proximity input for Mimosa.vl.
 
 No person detection at all: a RealSense D435i measures the nearest distance in a
 center-row "interaction zone" (5 Pipet probes) of the depth image. Anything entering
@@ -400,7 +400,7 @@ def validate(path: Path) -> list[str]:
 
 
 def main() -> int:
-    out = ROOT / "test_vl_code" / "MimosaVisioni.vl"
+    out = ROOT / "vlsrc" / "MimosaVisioni.vl"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(TEMPLATE, encoding="utf-8", newline="\n")
     errors = validate(out)

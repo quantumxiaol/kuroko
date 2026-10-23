@@ -1,5 +1,5 @@
 """Merge MimosaVisioni.vl (depth distance chain) into mimosa2.vl (robot behaviour)
-to produce test_vl_code/MimosaFinal.vl.
+to produce vlsrc/MimosaFinal.vl.
 
 - Grafts all vision nodes/pads/links into the mimosa2 Application canvas with fresh
   VL ids, positioned below the existing content.
@@ -24,9 +24,9 @@ spec = importlib.util.spec_from_file_location("vl_ids", IDS_PY)
 vl_ids = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(vl_ids)
 
-BASE = ROOT / "test_vl_code" / "mimosa2.vl"
-VISION = ROOT / "test_vl_code" / "MimosaVisioni.vl"
-OUT = ROOT / "test_vl_code" / "MimosaFinal.vl"
+BASE = ROOT / "vlsrc" / "mimosa2.vl"
+VISION = ROOT / "vlsrc" / "MimosaVisioni.vl"
+OUT = ROOT / "vlsrc" / "MimosaFinal.vl"
 
 # in mimosa2.vl: simulated distance pad and its link into MapClamp.Input
 SIM_PAD = "IrFdQXZODvTPMSVgcJrNqq"

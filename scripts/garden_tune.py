@@ -17,7 +17,7 @@ spec = importlib.util.spec_from_file_location("vl_ids", IDS_PY)
 vl_ids = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(vl_ids)
 
-FILE = ROOT / "test_vl_code" / "MimosaGarden.vl"
+FILE = ROOT / "vlsrc" / "MimosaGarden.vl"
 P = "{property}"
 
 CYL_TRANSLATION = (0, 0.01, 0)     # bake the live-tuned floor height

@@ -20,7 +20,7 @@ spec = importlib.util.spec_from_file_location("vl_ids", IDS_PY)
 vl_ids = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(vl_ids)
 
-FILE = ROOT / "test_vl_code" / "MimosaFinal.vl"
+FILE = ROOT / "vlsrc" / "MimosaFinal.vl"
 P = "{property}"
 
 GROUP_CHILD2 = "PqPX1mP4HMbMPza6nylHsC"  # entity Group Child 2 (currently the Disc)

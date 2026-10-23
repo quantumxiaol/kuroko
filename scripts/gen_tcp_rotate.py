@@ -1,4 +1,4 @@
-"""Generate test_vl_code/TCPRotate.vl — a Bunraku patch that rotates the robot around its TCP.
+"""Generate vlsrc/TCPRotate.vl — a Bunraku patch that rotates the robot around its TCP.
 
 All NodeReference blocks are copied verbatim from the installed VL.Bunraku 1.0.3 nuget
 (help/Overview/Example Motion Types.vl, help/Overview/HowTo Send Robot profiles via MQTT.vl)
@@ -277,7 +277,7 @@ def validate(path: Path) -> list[str]:
 
 
 def main() -> int:
-    out = ROOT / "test_vl_code" / "TCPRotate.vl"
+    out = ROOT / "vlsrc" / "TCPRotate.vl"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(TEMPLATE, encoding="utf-8", newline="\n")
     errors = validate(out)

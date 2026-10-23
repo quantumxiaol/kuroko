@@ -1,4 +1,4 @@
-"""Generate test_vl_code/ScaredyShroom.vl — minimal viewer for the vertex-color GLB.
+"""Generate vlsrc/ShroomViewer.vl — minimal viewer for the vertex-color GLB.
 
 FileModel (path ../assert/Scaredy-shroom.glb, relative to the document)
   -> ModelEntity -> RootScene -> SceneWindow, plus a SkyboxLight for lighting.
@@ -244,7 +244,7 @@ def validate(path: Path) -> list[str]:
 
 
 def main() -> int:
-    out = ROOT / "test_vl_code" / "ScaredyShroom.vl"
+    out = ROOT / "vlsrc" / "ShroomViewer.vl"
     out.write_text(TEMPLATE, encoding="utf-8", newline="\n")
     errors = validate(out)
     print(f"wrote {out} ({out.stat().st_size} bytes, {len(_ids)} unique ids)")
