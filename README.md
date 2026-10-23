@@ -68,3 +68,5 @@ skills 来自 [vvvv-skills](https://github.com/tebjan/vvvv-skills)
 - 文件在磁盘被 vvvv 重写（保存/外部生成器改写）时自动刷新
 
 本项目里 agent 改 patch 的验证回路：生成器改写 `.vl` → vl-patch-viewer 看图检查连线 → vvvv 实际运行。
+
+![agent 辅助开发的工作流](pngs/image_agentworking.png)
