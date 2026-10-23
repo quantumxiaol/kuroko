@@ -103,7 +103,9 @@ class RobotState:
 def make_handler(state: RobotState):
     class Handler(BaseHTTPRequestHandler):
         server_version = "KurokoBridge/0.1"
-        protocol_version = "HTTP/1.1"
+        # HTTP/1.0：每个请求独立连接。vvvv 轮询每次新开 TCP、响应一拿到就 RST，
+        # 若用 HTTP/1.1 keep-alive，handler 傻等下一请求时会撞 ConnectionResetError 10054。
+        protocol_version = "HTTP/1.0"
 
         # ---- 基础工具 ----
 
@@ -115,8 +117,10 @@ def make_handler(state: RobotState):
                 self.send_header("Cache-Control", "no-store")
                 self.end_headers()
                 self.wfile.write(body)
+                # 响应发完立即关连接，不给对端 RST keep-alive 等待的机会
+                self.close_connection = True
             except (BrokenPipeError, ConnectionResetError):
-                pass
+                self.close_connection = True
 
         def _json(self, code: int, payload: dict | list) -> None:
             body = json.dumps(payload, ensure_ascii=False).encode("utf-8")

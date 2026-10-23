@@ -5,7 +5,9 @@ What it does:
 - adds a NuGet dependency on VL.SimpleHTTP 1.3.1
 - disconnects the local shy/dance pose (Cons.Result -> AxisTarget.AxisValues)
 - adds: LFO(0.2s) -> Request (Async) GET localhost:8765/robot/pose
-         -> Split (String) "," -> TryParse -> AxisTarget.AxisValues
+         -> Split (String) "," -> ForEach{ TryParse } -> AxisTarget.AxisValues
+  (TryParse takes a single String, not Spread<String> — the ForEach region maps
+   each slice to a float and re-collects them into a Spread<Float32>)
 
 The local distance/pose nodes stay in place, just unconnected, so switching back is
 one link. The Python bridge interpolates the action keyframes and serves the current
@@ -104,19 +106,55 @@ def split_string(bounds: str) -> tuple[etree._Element, dict[str, str]]:
     return node, pins
 
 
-def try_parse(bounds: str) -> tuple[etree._Element, dict[str, str]]:
+def try_parse_into_region(bounds: str) -> tuple[etree._Element, dict[str, str]]:
+    """ForEach region wrapping one TryParse: Spread<String> in, Spread<Float32> out.
+
+    Shape follows CoreLib help patches ("HowTo Replace items in a spread"):
+    top ControlPoint carries the element in, bottom ControlPoint collects the
+    per-slice result into the output spread.
+    """
+    x, y, w, h = (int(v) for v in bounds.split(","))
+
     node = etree.Element("Node", Bounds=bounds, Id=new_id())
     ref = etree.SubElement(node, P + "NodeReference")
-    ref.set("LastCategoryFullName", "System.Conversion")
-    ref.set("LastSymbolSource", "CoreLibBasics.vl")
-    etree.SubElement(ref, "Choice", Kind="NodeFlag", Name="Node", Fixed="true")
-    etree.SubElement(ref, "Choice", Kind="OperationCallFlag", Name="TryParse")
-    pins = {
-        "String": pin(node, "String", "InputPin"),
-        "Value": pin(node, "Value", "OutputPin"),
-        "Success": pin(node, "Success", "OutputPin"),
+    ref.set("LastCategoryFullName", "Primitive")
+    ref.set("LastDependency", "Builtin")
+    etree.SubElement(ref, "Choice", Kind="StatefulRegion", Name="Region (Stateful)", Fixed="true")
+    etree.SubElement(ref, "CategoryReference", Kind="Category", Name="Primitive")
+    etree.SubElement(ref, "Choice", Kind="ApplicationStatefulRegion", Name="ForEach")
+    pin(node, "Break", "OutputPin")
+
+    body = etree.SubElement(node, "Patch", Id=new_id(), ManuallySortedPins="true")
+    etree.SubElement(body, "Patch", Id=new_id(), Name="Create", ManuallySortedPins="true")
+    etree.SubElement(body, "Patch", Id=new_id(), Name="Update", ManuallySortedPins="true")
+    etree.SubElement(body, "Patch", Id=new_id(), Name="Dispose", ManuallySortedPins="true")
+
+    parse_node = etree.SubElement(body, "Node", Bounds=f"{x + 15},{y + 30},55,19", Id=new_id())
+    pref = etree.SubElement(parse_node, P + "NodeReference")
+    pref.set("LastCategoryFullName", "System.Conversion")
+    pref.set("LastSymbolSource", "CoreLibBasics.vl")
+    etree.SubElement(pref, "Choice", Kind="NodeFlag", Name="Node", Fixed="true")
+    etree.SubElement(pref, "Choice", Kind="OperationCallFlag", Name="TryParse")
+    parse_pins = {
+        "String": pin(parse_node, "String", "InputPin"),
+        "Value": pin(parse_node, "Value", "OutputPin"),
+        "Success": pin(parse_node, "Success", "OutputPin"),
     }
-    return node, pins
+
+    top = etree.SubElement(
+        node, "ControlPoint", Id=new_id(), Bounds=f"{x + 12},{y}", Alignment="Top"
+    )
+    bottom = etree.SubElement(
+        node, "ControlPoint", Id=new_id(), Bounds=f"{x + 12},{y + h}", Alignment="Bottom"
+    )
+
+    def inner_link(source: str, sink: str) -> None:
+        etree.SubElement(body, "Link", Id=new_id(), Ids=f"{source},{sink}")
+
+    inner_link(top.get("Id"), parse_pins["String"])
+    inner_link(parse_pins["Value"], bottom.get("Id"))
+
+    return node, {"Input": top.get("Id"), "Output": bottom.get("Id")}
 
 
 def lfo(bounds: str) -> tuple[etree._Element, dict[str, str]]:
@@ -213,7 +251,7 @@ def main() -> int:
     lfo_node, lfo_pins = lfo("1300,880,45,19")
     req_node, req_pins = request_async("1440,880,105,19")
     split_node, split_pins = split_string("1650,880,45,19")
-    parse_node, parse_pins = try_parse("1800,880,55,19")
+    parse_node, parse_pins = try_parse_into_region("1800,860,80,80")
 
     # --- pads ---
     url_pad = string_pad("1440,840,330,16", BRIDGE_URL)
@@ -225,7 +263,8 @@ def main() -> int:
     )
     note = string_pad(
         "1100,735,780,30",
-        "先启动 uv run kuroko-bridge 再按 play。GET /robot/pose 返回 j1..j7；"
+        "先启动 uv run kuroko-bridge 再按 play。GET /robot/pose 返回 j1..j7，"
+        "Split 拆成 Spread<String> 后由 ForEach{TryParse} 逐片解析回 Spread<Float32> 喂给 AxisTarget；"
         "左边原来的 distance → shy/dance 链保持不动，改回本地行为时把 Cons.Result 重新接回 AxisTarget.AxisValues。",
         fontsize="9",
     )
@@ -238,8 +277,8 @@ def main() -> int:
     link(inner, lfo_pins["On New Cycle"], req_pins["Refresh"])
     link(inner, url_pad.get("Id"), req_pins["URL"])
     link(inner, req_pins["Content"], split_pins["Input"])
-    link(inner, split_pins["Output"], parse_pins["String"])
-    link(inner, parse_pins["Value"], AXIS_TARGET_VALUES)
+    link(inner, split_pins["Output"], parse_pins["Input"])
+    link(inner, parse_pins["Output"], AXIS_TARGET_VALUES)
 
     # --- sanity checks ---
     ids = [el.get("Id") for el in root.iter() if el.get("Id")]
