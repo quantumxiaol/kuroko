@@ -1986,9 +1986,9 @@
               </p:TypeArguments>
             </p:TypeAnnotation>
             <p:Value>
-              <Item>2.5, 0.58, -1</Item>
+              <Item>3, 0.58, -1</Item>
               <Item>1, 0.25, 2</Item>
-              <Item>-0.5, 0.5, -1.5</Item>
+              <Item>-1, 0.5, -1.5</Item>
             </p:Value>
           </Pad>
           <Pad Id="HAV2eb5pYGQOZUJv4gqgMc" Comment="" Bounds="3284,1730,35,65" ShowValueBox="true" isIOBox="true" Value="1, 0.38, 0.84">
@@ -2128,7 +2128,7 @@
               <Choice Kind="TypeFlag" Name="Vector3" />
             </p:TypeAnnotation>
           </Pad>
-          <Node Bounds="1900,1580,76,19" Id="HIaUqyZLh65Ob98HRRKsBo">
+          <Node Bounds="1900,1580,80,19" Id="HIaUqyZLh65Ob98HRRKsBo">
             <p:NodeReference LastCategoryFullName="3D.Transform" LastDependency="VL.CoreLib.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Transform" NeedsToBeDirectParent="true">
@@ -2301,7 +2301,6 @@
         <Link Id="EvRHiExd9PIPDJMsQNKBFS" Ids="BT8nnC310HAPXBWcbt2Teu,RSIB1cboDzsNnoIi9EKcfj" />
         <Link Id="UqkPnmEg98EPQ53LSjrTNo" Ids="MH3X5mtCos5OSTLljf8GhM,CPq18gbyN7rPzC4TdxoQ4H" />
         <Link Id="UBUkzf2AEQeMu3sS7QKD2w" Ids="PCDyR361W0FNHRb9XmFxo7,NdG143TZU9uP5DO9QK3jf0" />
-        <Link Id="S5ecbX30zkVPSMWhOUWihz" Ids="TmcHPsfUYcWLvCURjr9ZNi,G6ioPpNXcVKN9ZJkCiUKR1" />
         <Link Id="GfQO43kjsibMIXw1cFvQCy" Ids="OMjhstWmxm6NMOdxVTh6TZ,HSKBKcnibYnNJfcOhqAU9C" />
         <Link Id="OzsdiQFMBaOQO9Nj49JQSe" Ids="FRzkvb7CKAfOwrSWb9PD3u,R4jFztH9krhOk1hno0iABV" />
         <Link Id="Sn9wbDT4fEHNeAUeRzQM3J" Ids="RGMAG2l0jFVNqZBhb2HhfE,CNziOU9Clk9Og4aO9lLLX0" />
@@ -2341,6 +2340,7 @@
         <Link Id="G4pSIDwqxE7LsDo78OBvKL" Ids="EYlcKsjR6G9LEhSxqcwZuL,Kml5O046IpFPWothWnZZMb" />
         <Link Id="NuToozCa1e8QIlZtOP83bp" Ids="Hg7UOy2QXPmPD8la7xR7xo,BdEwarXTI6jMJujxyzMIYL,EYlcKsjR6G9LEhSxqcwZuL" />
         <Link Id="CPfC6UcPRLTNi8Ux9nQZtj" Ids="RXjNAYZY95uNrPCi4eqgjQ,FK0O4tVhltjMHvj8EAYhPB" />
+        <Link Id="T8uSZSUOv87PqWwSpTllrV" Ids="TmcHPsfUYcWLvCURjr9ZNi,G6ioPpNXcVKN9ZJkCiUKR1" />
       </Patch>
     </Node>
   </Patch>
