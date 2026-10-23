@@ -47,3 +47,18 @@ docs/           安装与环境文档
 - 顶点色模型渲染需要 `vlsrc/shaders/VertexColor_ShaderFX.sdsl`（patch 旁 `shaders/` 目录约定），首次加入需重启 vvvv
 
 skills 来自 [vvvv-skills](https://github.com/tebjan/vvvv-skills)
+
+## 配套工具：vl-patch-viewer
+
+[vl-patch-viewer](https://github.com/quantumxiaol/vl-patch-viewer) 是本项目的配套 VS Code 扩展：把 `.vl` patch 渲染成可交互的 SVG 节点图（节点、pin、连线、IOBox、注释），不用开 vvvv 就能审阅/检查 patch。
+
+**安装**：从 [GitHub Releases](https://github.com/quantumxiaol/vl-patch-viewer/releases) 下载最新的 `vl-patch-viewer-x.y.z.vsix`，VS Code → 扩展视图 → `…` → *Install from VSIX…*；或命令行 `code --install-extension vl-patch-viewer-x.y.z.vsix`。
+
+**在这个项目里的用法**：
+
+- 打开 `vlsrc/` 下任意 `.vl`，以 *VL Patch Graph* 编辑器查看节点图，可平移缩放、点选看 pin/存值
+- 可直接改输入 pin 的 `DefaultValue` / IOBox 的 `Value`（类型校验过的静态编辑），保存后回 vvvv reload
+- Windows 上可选用本机 vvvv 编译器做真实编译校验，错误进 Problems 面板
+- 文件在磁盘被 vvvv 重写（保存/外部生成器改写）时自动刷新
+
+本项目里 agent 改 patch 的验证回路：生成器改写 `.vl` → vl-patch-viewer 看图检查连线 → vvvv 实际运行。
