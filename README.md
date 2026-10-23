@@ -20,6 +20,7 @@ scripts/        生成/修复/合并这些 patch 的 Python 脚本 + PRC 工具�
 assert/         模型与贴图（顶点色蘑菇 glb、草地/天空盒 png）
 proto/          PRC gRPC API 定义（来自 PRC.Integrations）
 src/prc_client/ 生成的 Python gRPC 客户端
+src/kuroko/     对话桥：HTTP 服务 + 动作库 + 终端聊天
 third_party/    VL.Bunraku submodule
 third_service/  PRC Server（闭源，gitignored，安装见 docs/prc-server.md）
 docs/           安装与环境文档
@@ -36,6 +37,7 @@ docs/           安装与环境文档
 | `ShroomScene.vl` | 场景实验：3 个蘑菇 + 圆柱地面 + 灯光 |
 | `MimosaFinal.vl` | 完整单体：深度感知 → 害羞/跳舞行为 + 自动运镜 |
 | `MimosaGarden.vl` | **最终版**：上面的全部 + 草地/天空盒/蘑菇场景 |
+| `MimosaTalk.vl` | 对话桥测试版：`Mimosa.vl` + 轮询 Python 服务的 7 轴姿态（需 `VL.SimpleHTTP` 1.3.1） |
 
 ## 运行环境
 
@@ -44,6 +46,21 @@ docs/           安装与环境文档
   - 装不上时可用 `uv run python scripts/stage_nuget.py <包名> <版本>` 直接塞进 nuget 缓存
 - Intel RealSense D435i（USB 3 口）
 - Python 侧（PRC gRPC 客户端等）：`uv sync`
+
+## 对话桥（文字链路）
+
+```bash
+uv sync                  # 第一次：把 src/kuroko 装成包（会更新 uv.lock）
+uv run kuroko-bridge     # 终端 A：本地 HTTP 服务，127.0.0.1:8765
+uv run kuroko-chat       # 终端 B：打字聊天，机械臂按动作表动
+```
+
+vvvv 侧用 `vlsrc/MimosaTalk.vl`：它每 0.2 s 轮询 `GET /robot/pose` 取 7 个关节角，
+直接喂给 `AxisTarget`。原 patch 里的 distance → shy/dance 链还留着，只是断开了，
+改回本地行为时把 `Cons.Result` 重新接回 `AxisTarget.AxisValues` 即可。
+动作序列在 `src/kuroko/actions.py`。
+`.env` 里填 `DEEPSEEK_API_KEY` / `MIMO_API_KEY`（见 `.env.example`），没 key 时走关键词路由也能跑。
+详见 [src/kuroko/README.md](./src/kuroko/README.md)。
 
 ## 开发约定
 
