@@ -14,3 +14,6 @@ third_service/
 
 # vvvv patch compile cache
 *.pc
+
+# Node (future presentation frontend)
+node_modules/

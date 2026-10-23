@@ -6,6 +6,10 @@ A shy robot installation: when someone approaches, the arm folds into itself and
 
 基于 vvvv gamma + VL.Bunraku（机器人实时运动学/仿真/渲染）+ Intel RealSense D435i（深度感知），面向 KUKA 机械臂（仿真：KR13 / LBR iiwa；真机走 PRC Server）。
 
+| 人离开，跳舞 | 深度相机视角 | 有人靠近，害羞蜷缩 |
+|---|---|---|
+| ![dance](pngs/image_dance.png) | ![depth](pngs/image_depth.png) | ![hide](pngs/image_hide.png) |
+
 ## 目录结构
 
 ```
